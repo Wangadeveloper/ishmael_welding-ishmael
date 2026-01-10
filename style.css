@@ -1,0 +1,268 @@
+:root {
+      --primary: #ff7a00;
+      --dark: #111;
+      --light: #f9f9f9;
+      --gray: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+        url("https://via.placeholder.com/1600x900") center/cover no-repeat;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      width: 100%;
+    }
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px; /* smooth outer rounding */
+  backdrop-filter: blur(6px); /* FIXED */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* LOGO IMAGE */
+.logo img {
+  height: clamp(70px, 15vw, 300px); /* responsive, not huge */
+  width: auto;
+  object-fit: contain;
+  border-radius: 12px; /* smooth inner corners */
+  display: block;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.4)); /* FIXED */
+}
+
+
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding-top: 80px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      max-width: 600px;
+    }
+
+    .hero p {
+      margin: 20px 0;
+      max-width: 500px;
+      color: #ddd;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    /* ---------- GALLERY ---------- */
+/* ---------- GALLERY (FIXED & RESPONSIVE) ---------- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 10px; /* prevents side overflow */
+}
+
+.gallery img {
+  width: 100%;
+  height: 500px; /* CONTROL height */
+  object-fit: cover; /* no stretching */
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: block;
+}
+
+/* Hover only on non-touch devices */
+@media (hover: hover) {
+  .gallery img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.25);
+  }
+}
+
+/* MOBILE FIX — stack vertically */
+@media (max-width: 1000px) {
+  .gallery {
+    grid-template-columns: 1fr; /* ONE COLUMN */
+    padding: 0 12px;
+  }
+
+  .gallery img {
+    height: 800px; /* NOT tall */
+  }
+}
+
+
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      background: var(--dark);
+      color: white;
+      border-radius: 10px;
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .contact a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      nav div {
+        margin-top: 10px;
+      }
+    }
+/* ---------- NAV BUTTON LINKS ---------- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Button style */
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: 999px; /* pill shape */
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Active / clicked feel */
+.nav-links a:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    padding: 7px 16px;
+    font-size: 0.85rem;
+  }
+}
+
